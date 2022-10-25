@@ -18,10 +18,14 @@ public class BlockCollisions : MonoBehaviour
         if(other.gameObject.tag == "Collected" 
         && other.gameObject.layer == LayerMask.NameToLayer("Block") 
         && !isCollected){
+            float zPos = 1f;
+            zPos = (BlocksListController.blocks.Count) * 1.25f;
+
+            BlocksListController.blocks.Add(this.gameObject);
             isCollected = true;
             gameObject.tag = "Collected";
             transform.parent = player.transform;
-            transform.DOLocalMove(Vector3.forward * (player.transform.childCount-1),0.25f);
+            transform.DOLocalMove(Vector3.forward * zPos,0.25f);
             transform.DOLocalRotate(Vector3.zero,0.25f);
         }
     }
