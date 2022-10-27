@@ -19,6 +19,6 @@ public class PlayerRotationController : MonoBehaviour
 
     void rotateOperations(){
         rotValue = transform.position.x;
-        transform.eulerAngles = new Vector3(0,rotValue,0);
+        transform.eulerAngles = new Vector3(0,rotValue*3f,0);
     }
 }

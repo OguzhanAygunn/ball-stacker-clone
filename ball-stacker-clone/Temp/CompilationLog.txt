@@ -1,0 +1,12 @@
+# Starting compiling UnityEngine.TestRunner.dll
+/home/antenovis/Belgeler/2020.3.36f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-e479855a7a4618efb861988d39b8f3b9
+# Starting compiling UnityEngine.UI.dll
+/home/antenovis/Belgeler/2020.3.36f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-d5d9cbaf1fa7def0988004f91ab6448f
+# Starting compiling Unity.Timeline.dll
+/home/antenovis/Belgeler/2020.3.36f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-4eb5d324b70836452a8374715c022ac9
+# Starting compiling Unity.TextMeshPro.dll
+/home/antenovis/Belgeler/2020.3.36f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-ecaa8e4307490cc72a13c6252e7954fd
+# Starting compiling Assembly-CSharp-firstpass.dll
+/home/antenovis/Belgeler/2020.3.36f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-e18ea8eabaa8196dab65545e7f73c461
+# Starting compiling Assembly-CSharp.dll
+/home/antenovis/Belgeler/2020.3.36f1/Editor/Data/Tools/RoslynScripts/unity_csc.sh /noconfig @Temp/UnityTempFile-837ef7feeace1e5bea88ada7d8bfe5d0

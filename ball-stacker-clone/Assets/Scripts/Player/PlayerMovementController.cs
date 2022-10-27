@@ -25,6 +25,7 @@ public class PlayerMovementController : MonoBehaviour
             pos.x += touch.deltaPosition.x / sensibility * Time.fixedDeltaTime;
             transform.position += pos;
             transform.position += Vector3.forward / 10f;
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x,-3,3),transform.position.y,transform.position.z);
     }
     }
 }

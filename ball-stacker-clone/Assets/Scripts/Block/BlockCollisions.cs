@@ -7,26 +7,42 @@ public class BlockCollisions : MonoBehaviour
 {
     bool isCollected;
     GameObject player;
+
+    public delegate void voidfuncs();
+
+    voidfuncs collisionFuncs;
+    BlockScaleController blockScaleController;
+    GameObject parentObj;
     // Start is called before the first frame update
-    void Start()
-    {
+
+    private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").gameObject;
         isCollected = gameObject.CompareTag("Collected");
+        if(isCollected)
+        BlocksListController.blocks.Add(this.gameObject);
+    }
+    void Start()
+    {
+        blockScaleController = GetComponent<BlockScaleController>();
+        parentObj = GameObject.Find("blocks").gameObject;
+    }
+
+    private void collFunc(){
+        float zPos = 1f;
+        zPos = (BlocksListController.blocks.Count) * 1.25f;
+        BlocksListController.blocks.Add(this.gameObject);
+        isCollected = true;
+        gameObject.tag = "Collected";
+        transform.parent = parentObj.transform;
+        transform.DOLocalMove(Vector3.forward * zPos,0.25f);
+        transform.DOLocalRotate(Vector3.zero,0.25f);
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Collected" 
         && other.gameObject.layer == LayerMask.NameToLayer("Block") 
         && !isCollected){
-            float zPos = 1f;
-            zPos = (BlocksListController.blocks.Count) * 1.25f;
-
-            BlocksListController.blocks.Add(this.gameObject);
-            isCollected = true;
-            gameObject.tag = "Collected";
-            transform.parent = player.transform;
-            transform.DOLocalMove(Vector3.forward * zPos,0.25f);
-            transform.DOLocalRotate(Vector3.zero,0.25f);
+            collFunc();
         }
     }
 }

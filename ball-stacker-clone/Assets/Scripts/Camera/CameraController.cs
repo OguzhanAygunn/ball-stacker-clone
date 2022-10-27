@@ -11,15 +11,21 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
+        GameManager.Start();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         followOperations();
+        if(Input.touchCount > 0){
+            GameManager.GameStart = true;
+        }
     }
 
     private void followOperations(){
-        transform.position = Vector3.MoveTowards(transform.position,playerPos.position + offset,followSpeed*Time.fixedDeltaTime);
+        Vector3 targetPos = playerPos.position + offset;
+        targetPos.x = transform.position.x;
+        transform.position = Vector3.MoveTowards(transform.position,targetPos,followSpeed*Time.fixedDeltaTime);
     }
 }

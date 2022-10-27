@@ -5,15 +5,15 @@ using TMPro;
 
 public class BlockValue : MonoBehaviour
 {
-    enum TypeValue{
+    public enum TypeValue{
         plus,
         multipler,
         division
     }
 
-    [SerializeField] TypeValue typeValue;
+    [SerializeField] public TypeValue typeValue;
 
-    [SerializeField] int numberValue;
+    public int numberValue;
 
     [SerializeField] TextMeshPro text;
     string _operator;

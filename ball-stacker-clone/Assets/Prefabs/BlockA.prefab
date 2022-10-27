@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 8503035123610655644}
   - component: {fileID: 3531706243657603941}
   - component: {fileID: -6825055656475851805}
+  - component: {fileID: 55692280553106183}
   m_Layer: 6
   m_Name: BlockA
   m_TagString: Collectable
@@ -312,3 +313,15 @@ MonoBehaviour:
   typeValue: 0
   numberValue: 0
   text: {fileID: 8897424705715701700}
+--- !u!114 &55692280553106183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503035123610655646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245bf12da3b39bc2c8c00ed7e1d87ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

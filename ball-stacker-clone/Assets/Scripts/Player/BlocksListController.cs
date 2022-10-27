@@ -6,6 +6,5 @@ public class BlocksListController : MonoBehaviour
 {
     public static List<GameObject> blocks = new List<GameObject>();
     private void Start() {
-        blocks.Add(transform.GetChild(0).gameObject);
     }
 }
