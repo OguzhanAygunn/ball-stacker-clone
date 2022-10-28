@@ -132,7 +132,7 @@
 73-->[:unityLibrary] /home/antenovis/Belgeler/GitHub/ball-stacker-clone/ball-stacker-clone/Temp/gradleOut/unityLibrary/build/intermediates/library_manifest/release/AndroidManifest.xml:63:9-65:68
 74            android:name="unity.build-id"
 74-->[:unityLibrary] /home/antenovis/Belgeler/GitHub/ball-stacker-clone/ball-stacker-clone/Temp/gradleOut/unityLibrary/build/intermediates/library_manifest/release/AndroidManifest.xml:64:13-42
-75            android:value="5e03e2b7-a223-4c61-a238-be951f4cfa7d" />
+75            android:value="df4d047a-cccf-42ab-971a-214b110dfa3c" />
 75-->[:unityLibrary] /home/antenovis/Belgeler/GitHub/ball-stacker-clone/ball-stacker-clone/Temp/gradleOut/unityLibrary/build/intermediates/library_manifest/release/AndroidManifest.xml:65:13-65
 76    </application>
 77

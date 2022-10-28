@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - EnemySpawnerController
     - GunController
     - GunScaleController
+    - OpenableGroundButtonController
     - PlayerMovementController
     - PlayerRotationController
     DOTween.dll:
@@ -31,7 +32,6 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationBlendTree.Node
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
@@ -139,6 +139,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 28682}
     - Class: 114
       Script: {instanceID: 32162}
+    - Class: 114
+      Script: {instanceID: 55148}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -696,6 +698,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyAAnimatorController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OpenableGroundButtonController
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

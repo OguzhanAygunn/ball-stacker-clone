@@ -13,6 +13,8 @@ public class BlockCollisions : MonoBehaviour
     voidfuncs collisionFuncs;
     BlockScaleController blockScaleController;
     GameObject parentObj;
+    [SerializeField] GameObject destroyEffect;
+    Color myColor;
     // Start is called before the first frame update
 
     private void Awake() {
@@ -25,6 +27,7 @@ public class BlockCollisions : MonoBehaviour
     {
         blockScaleController = GetComponent<BlockScaleController>();
         parentObj = GameObject.Find("blocks").gameObject;
+        myColor = GetComponent<MeshRenderer>().material.color;
     }
 
     private void collFunc(){
@@ -38,11 +41,22 @@ public class BlockCollisions : MonoBehaviour
         transform.DOLocalRotate(Vector3.zero,0.25f);
     }
 
+    private void destroyFunc(){
+        BlocksListController.blocks.Remove(gameObject);
+        Destroy(this.gameObject);
+        GameObject effect = Instantiate(destroyEffect,transform.position,Quaternion.identity);
+        effect.GetComponent<ParticleSystem>().startColor = myColor;
+    }
+
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Collected" 
         && other.gameObject.layer == LayerMask.NameToLayer("Block") 
         && !isCollected){
             collFunc();
+        }
+        else if(other.gameObject.layer == LayerMask.NameToLayer("Obstacle") 
+        && GetComponent<MainBlockController>() == null){
+            destroyFunc();
         }
     }
 }
