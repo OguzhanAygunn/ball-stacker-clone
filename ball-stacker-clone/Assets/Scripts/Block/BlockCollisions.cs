@@ -14,6 +14,7 @@ public class BlockCollisions : MonoBehaviour
     BlockScaleController blockScaleController;
     GameObject parentObj;
     [SerializeField] GameObject destroyEffect;
+    BlockMoveController blockMoveController;
     Color myColor;
     // Start is called before the first frame update
 
@@ -28,17 +29,16 @@ public class BlockCollisions : MonoBehaviour
         blockScaleController = GetComponent<BlockScaleController>();
         parentObj = GameObject.Find("blocks").gameObject;
         myColor = GetComponent<MeshRenderer>().material.color;
+        blockMoveController = GetComponent<BlockMoveController>();
     }
 
-    private void collFunc(){
-        float zPos = 1f;
-        zPos = (BlocksListController.blocks.Count) * 1.25f;
+    public void collFunc(){
         BlocksListController.blocks.Add(this.gameObject);
         isCollected = true;
         gameObject.tag = "Collected";
         transform.parent = parentObj.transform;
-        transform.DOLocalMove(Vector3.forward * zPos,0.25f);
         transform.DOLocalRotate(Vector3.zero,0.25f);
+        blockMoveController.setPos();
     }
 
     private void destroyFunc(){
@@ -46,6 +46,7 @@ public class BlockCollisions : MonoBehaviour
         Destroy(this.gameObject);
         GameObject effect = Instantiate(destroyEffect,transform.position,Quaternion.identity);
         effect.GetComponent<ParticleSystem>().startColor = myColor;
+        BlocksListController.blockChangePos();
     }
 
     private void OnCollisionEnter(Collision other) {

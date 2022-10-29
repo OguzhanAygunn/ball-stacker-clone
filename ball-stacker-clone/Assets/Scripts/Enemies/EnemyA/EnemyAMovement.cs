@@ -6,6 +6,7 @@ public class EnemyAMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     Transform targetPos;
+    Vector3 targetVec;
     // Start is called before the first frame update
     void Start()
     {

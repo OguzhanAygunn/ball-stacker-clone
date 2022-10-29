@@ -1,4 +1,0 @@
-#Fri Oct 28 04:09:10 EET 2022
-base.0=/home/antenovis/Belgeler/GitHub/ball-stacker-clone/ball-stacker-clone/Temp/gradleOut/launcher/build/intermediates/dex/release/mergeDexRelease/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

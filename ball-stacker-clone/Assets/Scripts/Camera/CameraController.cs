@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
@@ -27,5 +28,9 @@ public class CameraController : MonoBehaviour
         Vector3 targetPos = playerPos.position + offset;
         targetPos.x = transform.position.x;
         transform.position = Vector3.MoveTowards(transform.position,targetPos,followSpeed*Time.fixedDeltaTime);
+    }
+
+    public void shakeFunc(){
+        Camera.main.DOShakeRotation(0.2f,2,1);
     }
 }

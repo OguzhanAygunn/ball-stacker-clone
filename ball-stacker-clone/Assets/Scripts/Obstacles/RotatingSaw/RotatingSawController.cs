@@ -6,7 +6,7 @@ public class RotatingSawController : MonoBehaviour
 {
     [SerializeField] float rotSpeed,moveSpeed;
     Vector3 firstPos,targetPos;
-    bool toTargetPos;
+    bool toTargetPos,isColl;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,15 +29,23 @@ public class RotatingSawController : MonoBehaviour
     void movementOperations(){
         if(toTargetPos){
             transform.position = Vector3.MoveTowards(transform.position,targetPos,moveSpeed*Time.deltaTime);
-            if(transform.position == targetPos){
+            if(transform.position == targetPos && !isColl){
                 toTargetPos = false;
             }
         }
         else{
             transform.position = Vector3.MoveTowards(transform.position,firstPos,moveSpeed*Time.deltaTime);
-            if(transform.position == firstPos){
+            if(transform.position == firstPos && !isColl){
                 toTargetPos = true;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        string tag = other.gameObject.tag;
+        if(tag == "Collected" && !isColl){
+            isColl = true;
+            moveSpeed *= 4f;
         }
     }
 }

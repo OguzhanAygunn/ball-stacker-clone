@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BlockCollisions
+    - BlockMoveController
     - BlockScaleController
     - BlockValue
     - BlocksListController
@@ -13,9 +14,12 @@ ScriptsOnlyBuild:
     - EnemySpawnerController
     - GunController
     - GunScaleController
+    - LowPolyWater.LowPolyWater
+    - MainBlockController
     - OpenableGroundButtonController
     - PlayerMovementController
     - PlayerRotationController
+    - RotatingSawController
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
     Unity.DeviceSimulator.Editor.dll:
@@ -29,14 +33,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -100,47 +96,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2306}
     - Class: 114
-      Script: {instanceID: 2374}
+      Script: {instanceID: 2328}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2376}
     - Class: 114
-      Script: {instanceID: 2662}
+      Script: {instanceID: 2378}
     - Class: 114
-      Script: {instanceID: 2852}
+      Script: {instanceID: 2490}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 2666}
     - Class: 114
-      Script: {instanceID: 3338}
+      Script: {instanceID: 2718}
     - Class: 114
-      Script: {instanceID: 3348}
+      Script: {instanceID: 2750}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 2860}
     - Class: 114
-      Script: {instanceID: 3512}
+      Script: {instanceID: 3220}
     - Class: 114
-      Script: {instanceID: 3706}
+      Script: {instanceID: 3226}
     - Class: 114
-      Script: {instanceID: 3754}
+      Script: {instanceID: 3266}
     - Class: 114
-      Script: {instanceID: 3932}
+      Script: {instanceID: 3350}
     - Class: 114
-      Script: {instanceID: 4192}
+      Script: {instanceID: 3360}
     - Class: 114
-      Script: {instanceID: 4208}
+      Script: {instanceID: 3364}
     - Class: 114
-      Script: {instanceID: 4458}
+      Script: {instanceID: 3450}
     - Class: 114
-      Script: {instanceID: 19968}
+      Script: {instanceID: 3526}
     - Class: 114
-      Script: {instanceID: 22270}
+      Script: {instanceID: 3720}
     - Class: 114
-      Script: {instanceID: 25284}
+      Script: {instanceID: 3768}
     - Class: 114
-      Script: {instanceID: 28682}
+      Script: {instanceID: 3946}
     - Class: 114
-      Script: {instanceID: 32162}
+      Script: {instanceID: 4090}
     - Class: 114
-      Script: {instanceID: 55148}
+      Script: {instanceID: 4150}
+    - Class: 114
+      Script: {instanceID: 4210}
+    - Class: 114
+      Script: {instanceID: 4226}
+    - Class: 114
+      Script: {instanceID: 4478}
+    - Class: 114
+      Script: {instanceID: 29218}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -292,10 +296,22 @@ ScriptsOnlyBuild:
     className: BlockValue
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyAAnimatorController
+  - hash:
+      serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: b8063620a7b99da9cbc2c2fc1b5fe28e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BulletAController
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -365,9 +381,21 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainBlockController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 18c4e2edd6fe0c3b021b3e673566e93b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemySpawnerController
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -443,6 +471,18 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlockMoveController
+  - hash:
+      serializedVersion: 2
+      Hash: 459b50185a167c1d210a783633c72823
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyAMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
@@ -512,6 +552,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OpenableGroundButtonController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -616,6 +662,12 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
+      Hash: 092ffefcb44fe3e52d1c78e1f5a339e2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotatingSawController
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -623,6 +675,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyACollision
+  - hash:
+      serializedVersion: 2
+      Hash: b8063620a7b99da9cbc2c2fc1b5fe28e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BlockCollisions
@@ -670,40 +728,10 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 18c4e2edd6fe0c3b021b3e673566e93b
+      Hash: 7c5084f22bda962db730d7217e88651b
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemySpawnerController
-  - hash:
-      serializedVersion: 2
-      Hash: 459b50185a167c1d210a783633c72823
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyAMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyACollision
-  - hash:
-      serializedVersion: 2
-      Hash: b8063620a7b99da9cbc2c2fc1b5fe28e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BulletAController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyAAnimatorController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: OpenableGroundButtonController
+    namespaceName: LowPolyWater
+    className: LowPolyWater
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
