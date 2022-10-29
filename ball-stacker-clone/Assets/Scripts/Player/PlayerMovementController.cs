@@ -19,7 +19,7 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     void movementOperations(){
-        if(Input.touchCount > 0){
+        if(Input.touchCount > 0 && !GameManager.isPlayerDead){
             touch = Input.GetTouch(0);
             Vector3 pos = Vector3.zero;
             pos.x += touch.deltaPosition.x / sensibility * Time.fixedDeltaTime;

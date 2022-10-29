@@ -7,15 +7,21 @@ public class EnemyACollision : MonoBehaviour
 {
     Animator animator;
     EnemyAMovement enemyAMovement;
+    Collider collider;
+    Rigidbody rigidbody;
     void Start()
     {
         animator = GetComponent<Animator>();
         enemyAMovement = GetComponent<EnemyAMovement>();
+        collider = GetComponent<Collider>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    void collFunc(){
+    public void deathFunc(){
+        gameObject.layer = 0;
         animator.enabled = false;
         enemyAMovement.enabled = false;
+        collider.enabled = false;
         transform.DOScale(Vector3.zero,0.66f).SetDelay(1.5f).OnComplete( () => {
             Destroy(this.gameObject);
         });
@@ -27,7 +33,7 @@ public class EnemyACollision : MonoBehaviour
         || tag == "Wall" 
         || other.gameObject.layer == LayerMask.NameToLayer("Obstacle")) 
         && animator.enabled){
-            collFunc();
+            deathFunc();
         }
     }
 }

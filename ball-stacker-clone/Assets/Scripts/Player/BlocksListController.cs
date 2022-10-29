@@ -11,21 +11,22 @@ public class BlocksListController : MonoBehaviour
     }
 
 
-    public async static void blockChangePos(){
+    public static void blockChangePos(){
         foreach(GameObject block in blocks){
             BlockMoveController blockMoveController = block.GetComponent<BlockMoveController>();
             blockMoveController.setPos();
+
         }
     }
 
     IEnumerator blockScaleEffect(){
-        while(true){
+        while(true && !GameManager.isPlayerDead){
             BlockScaleController[] blockScaleControllers = blocksParent.GetComponentsInChildren<BlockScaleController>();
-            foreach(BlockScaleController bsc in blockScaleControllers ){
-                if(bsc != null){
+            foreach(BlockScaleController bsc in blockScaleControllers){
+                if(bsc != null && !GameManager.isPlayerDead){
                     bsc.scaleEffectFunc();
                 }
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
     }

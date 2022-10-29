@@ -29,7 +29,7 @@ public class EnemySpawnerController : MonoBehaviour
 
     IEnumerator enemySpawnFunc(){
         while(true){
-            if(true){
+            if(!GameManager.isPlayerDead && GameManager.GameStart){
                 int enemyValue = Random.Range(0,  enemies.Length);
                 int posValue   = Random.Range(0,spawnPosS.Length);
                 Instantiate(enemies[enemyValue],spawnPosS[posValue].position,Quaternion.identity);

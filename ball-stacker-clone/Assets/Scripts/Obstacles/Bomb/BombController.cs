@@ -30,9 +30,11 @@ public class BombController : MonoBehaviour
         if(!isTrigger){
             foreach(Collider obj in objs){
                 GameObject obj_ = obj.gameObject;
-                targetPos = obj_.transform;
-                isTrigger = true;
-                rigidbody.AddTorque(Vector3.one * 360);
+                if(obj_.tag == "Collected"){
+                    targetPos = obj_.transform;
+                    isTrigger = true;
+                    rigidbody.AddTorque(Vector3.one * 360);
+                }
             }
         }
     }

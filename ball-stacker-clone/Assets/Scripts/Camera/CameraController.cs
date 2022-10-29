@@ -31,6 +31,8 @@ public class CameraController : MonoBehaviour
     }
 
     public void shakeFunc(){
-        Camera.main.DOShakeRotation(0.2f,2,1);
+        Camera.main.DOShakeRotation(0.2f,2,1).OnComplete( () => {
+            transform.rotation = Quaternion.Euler(43,0,0);
+        });
     }
 }

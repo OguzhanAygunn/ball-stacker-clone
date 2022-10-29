@@ -57,10 +57,12 @@ public class GunController : MonoBehaviour
 
     IEnumerator shootFunction(){
         while(true){
-            GameObject bullet_ = Instantiate(bullet,transform.position,transform.rotation);
-            Rigidbody bulletRigid = bullet_.GetComponent<Rigidbody>();
-            bulletRigid.AddForce(transform.TransformDirection(Vector3.back) * ballSpeed);
-            scaleUp = true;
+            if(!GameManager.isPlayerDead){
+                GameObject bullet_ = Instantiate(bullet,transform.position,transform.rotation);
+                Rigidbody bulletRigid = bullet_.GetComponent<Rigidbody>();
+                bulletRigid.AddForce(transform.TransformDirection(Vector3.back) * ballSpeed);
+                scaleUp = true;
+            }
             yield return new WaitForSeconds(1f/calculation());
         }
     }

@@ -16,6 +16,8 @@ public class BlockCollisions : MonoBehaviour
     [SerializeField] GameObject destroyEffect;
     BlockMoveController blockMoveController;
     Color myColor;
+    CameraController cameraController;
+    UIManager uimanager;
     // Start is called before the first frame update
 
     private void Awake() {
@@ -30,6 +32,8 @@ public class BlockCollisions : MonoBehaviour
         parentObj = GameObject.Find("blocks").gameObject;
         myColor = GetComponent<MeshRenderer>().material.color;
         blockMoveController = GetComponent<BlockMoveController>();
+        cameraController = Camera.main.gameObject.GetComponent<CameraController>();
+        uimanager = GameObject.FindObjectOfType<UIManager>();
     }
 
     public void collFunc(){
@@ -41,12 +45,14 @@ public class BlockCollisions : MonoBehaviour
         blockMoveController.setPos();
     }
 
-    private void destroyFunc(){
+    public void destroyFunc(){
         BlocksListController.blocks.Remove(gameObject);
         Destroy(this.gameObject);
         GameObject effect = Instantiate(destroyEffect,transform.position,Quaternion.identity);
         effect.GetComponent<ParticleSystem>().startColor = myColor;
         BlocksListController.blockChangePos();
+        cameraController.shakeFunc();
+        uimanager.hitEffectActive();
     }
 
     private void OnCollisionEnter(Collision other) {

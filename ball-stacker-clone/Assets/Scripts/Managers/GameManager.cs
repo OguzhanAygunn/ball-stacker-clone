@@ -4,8 +4,10 @@ using UnityEngine;
 
 public static class GameManager
 {
-    public static bool GameStart;
+    public static bool GameStart,isPlayerDead;
     public static void Start() {
-        GameStart = false;
+        GameStart      = false;
+        isPlayerDead   = false;
+        Time.timeScale = 1.25f;
     }
 }

@@ -16,8 +16,10 @@ public class EnemyAMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        movementOperations();
-        lookAtOperations();
+        if(!GameManager.isPlayerDead){
+            movementOperations();
+            lookAtOperations();
+        }
     }
 
 
@@ -26,6 +28,10 @@ public class EnemyAMovement : MonoBehaviour
     }
 
     void lookAtOperations(){
-        transform.LookAt(targetPos.position,transform.up);
+        transform.LookAt(targetPos.position,Vector3.up);
+        Vector3 rot = transform.eulerAngles;
+        rot.x = 0;
+        rot.z = 0;
+        transform.eulerAngles = rot;
     }
 }

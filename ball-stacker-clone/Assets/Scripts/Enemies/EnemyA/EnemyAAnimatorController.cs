@@ -20,8 +20,14 @@ public class EnemyAAnimatorController : MonoBehaviour
 
     void mainOperations(){
         if(GameManager.GameStart){
-            speedValue = Mathf.MoveTowards(speedValue,1,Time.fixedDeltaTime*3f);
-            animator.SetFloat("speed",speedValue);
+            if(!GameManager.isPlayerDead){
+                speedValue = Mathf.MoveTowards(speedValue,1,Time.fixedDeltaTime*1.5f);
+                animator.SetFloat("speed",speedValue);
+            }
+            else{
+                speedValue = Mathf.MoveTowards(speedValue,0,Time.fixedDeltaTime*1.5f);
+                animator.SetFloat("speed",speedValue);
+            }
         }
     }
 }
