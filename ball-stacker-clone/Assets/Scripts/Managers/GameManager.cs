@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameManager
+public class GameManager : MonoBehaviour
 {
-    public static bool GameStart,isPlayerDead;
-    public static void Start() {
-        GameStart      = false;
-        isPlayerDead   = false;
+    public static GameManager Instance;
+    public bool GameStart,isPlayerDead,GameWin;
+
+    private void Awake()
+    {
+        GameStart = false;
+        isPlayerDead = false;
+        GameWin = false;
+        Instance = this;
+    }
+    public void Start() {
         Time.timeScale = 1.25f;
     }
 }

@@ -23,7 +23,7 @@ public class BlockMoveController : MonoBehaviour
         first = true;
 
         float zPos = 1f;
-        zPos = (BlocksListController.blocks.IndexOf(gameObject)) * 1.25f;
+        zPos = (BlocksListController.Instance.blocks.IndexOf(gameObject)) * 1.25f;
         transform.DOLocalMove(Vector3.forward * zPos,0.25f);
     }
 }

@@ -1,8 +1,8 @@
 fileFormatVersion: 2
 guid: da07b23224fc6ce4da3214c9afa2e78a
 ModelImporter:
-  serializedVersion: 22103
-  InternalIDToNameTable:
+  serializedVersion: 21202
+  internalIDToNameTable:
   - first:
       74: 6624316191983093321
     second: run02
@@ -25,8 +25,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    ImportAnimatedCustomProperties: 0
-    ImportConstraints: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -64,7 +64,7 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    IsReadable: 0
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -72,10 +72,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    ImportVisibility: 1
-    ImportBlendShapes: 1
-    ImportCameras: 1
-    ImportLights: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -99,7 +99,6 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -109,7 +108,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  ImportAnimation: 1
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human:
@@ -571,8 +570,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  ImportBlendShapeDeformPercent: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

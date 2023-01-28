@@ -9,13 +9,13 @@ public class GunController : MonoBehaviour
     [SerializeField] float scaleSpeed,ballSpeed;
     public int numberValue;
     Vector3 upScale,defaultScale;
-    bool scaleUp;
+    bool scaleUp,fire;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(nameof(shootFunction));
         defaultScale = transform.localScale;
         upScale      = defaultScale * 1.25f;
+        StartCoroutine(shootFunction());
     }
 
     // Update is called once per frame
@@ -37,33 +37,45 @@ public class GunController : MonoBehaviour
 
     int calculation(){
         int bulletCount = 0;
-        foreach(GameObject block in BlocksListController.blocks){
-            BlockValue blockValue = block.GetComponent<BlockValue>();
-            int numberValue = blockValue.numberValue;
-            switch(blockValue.typeValue){
-                case BlockValue.TypeValue.plus:
-                bulletCount += numberValue;
-                break;
-                case BlockValue.TypeValue.multipler:
-                bulletCount *= numberValue;
-                break;
-                case BlockValue.TypeValue.division:
-                bulletCount /= numberValue;
-                break;
+        foreach(GameObject block in BlocksListController.Instance.blocks){
+            if (block != null)
+            {
+                BlockValue blockValue = block.GetComponent<BlockValue>();
+                int numberValue = blockValue.numberValue;
+                switch (blockValue.typeValue)
+                {
+                    case BlockValue.TypeValue.plus:
+                        bulletCount += numberValue;
+                        break;
+                    case BlockValue.TypeValue.multipler:
+                        bulletCount *= numberValue;
+                        break;
+                    case BlockValue.TypeValue.division:
+                        bulletCount /= numberValue;
+                        break;
+                }
             }
         }
+        Debug.Log(bulletCount.ToString());
+        if(bulletCount == 0)
+            bulletCount = 1;
         return bulletCount;
     }
-
     IEnumerator shootFunction(){
+        fire = true;
         while(true){
-            if(!GameManager.isPlayerDead){
-                GameObject bullet_ = Instantiate(bullet,transform.position,transform.rotation);
+            if(!GameManager.Instance.isPlayerDead && GameManager.Instance.GameStart && !GameManager.Instance.GameWin)
+            {
+                GameObject bullet_ = Instantiate(bullet, transform.position, transform.rotation);
                 Rigidbody bulletRigid = bullet_.GetComponent<Rigidbody>();
                 bulletRigid.AddForce(transform.TransformDirection(Vector3.back) * ballSpeed);
                 scaleUp = true;
+                yield return new WaitForSeconds(1f / calculation());
             }
-            yield return new WaitForSeconds(1f/calculation());
+            else
+            {
+                yield return new WaitForSeconds(1f / calculation());
+            }
         }
     }
 }

@@ -10,17 +10,18 @@ public class EnemyAAnimatorController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetFloat("speed", 1);
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        mainOperations();
+        //mainOperations();
     }
 
     void mainOperations(){
-        if(GameManager.GameStart){
-            if(!GameManager.isPlayerDead){
+        if(GameManager.Instance.GameStart){
+            if(!GameManager.Instance.isPlayerDead){
                 speedValue = Mathf.MoveTowards(speedValue,1,Time.fixedDeltaTime*1.5f);
                 animator.SetFloat("speed",speedValue);
             }

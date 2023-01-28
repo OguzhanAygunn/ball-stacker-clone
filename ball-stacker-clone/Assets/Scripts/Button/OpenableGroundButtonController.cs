@@ -8,6 +8,7 @@ public class OpenableGroundButtonController : MonoBehaviour
     GameObject button,wall;
     Material buttonMaterial;
     MeshRenderer wallRender;
+    Transform playerPos;
     bool isPress;
 
     // Start is called before the first frame update
@@ -17,14 +18,17 @@ public class OpenableGroundButtonController : MonoBehaviour
         buttonMaterial = button.GetComponent<MeshRenderer>().material;
         wall = transform.parent.gameObject.transform.GetChild(0).gameObject;
         wallRender = wall.GetComponent<MeshRenderer>();
+        playerPos = GameObject.FindObjectOfType<MainBlockController>().transform;
     }
 
 
     void collisionFunc(){
         buttonMaterial.color = Color.green;
         isPress = true;
-        Vector3 wallPos = wall.transform.localPosition;
+        wall.transform.parent = null;
+        Vector3 wallPos = wall.transform.position;
         wallPos.y = 0;
+        wallPos.z = playerPos.position.z - 0.55f;
         wall.transform.DOLocalMove(wallPos,0.3f);
 
         Color wallColor = wallRender.material.color;

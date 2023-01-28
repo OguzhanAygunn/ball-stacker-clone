@@ -15,6 +15,7 @@ public class BlockCollisions : MonoBehaviour
     GameObject parentObj;
     [SerializeField] GameObject destroyEffect;
     BlockMoveController blockMoveController;
+    BlockRotateController blockRotateController;
     Color myColor;
     CameraController cameraController;
     UIManager uimanager;
@@ -23,8 +24,6 @@ public class BlockCollisions : MonoBehaviour
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player").gameObject;
         isCollected = gameObject.CompareTag("Collected");
-        if(isCollected)
-        BlocksListController.blocks.Add(this.gameObject);
     }
     void Start()
     {
@@ -34,10 +33,12 @@ public class BlockCollisions : MonoBehaviour
         blockMoveController = GetComponent<BlockMoveController>();
         cameraController = Camera.main.gameObject.GetComponent<CameraController>();
         uimanager = GameObject.FindObjectOfType<UIManager>();
+        if (isCollected)
+            BlocksListController.Instance.blocks.Add(this.gameObject);
     }
 
     public void collFunc(){
-        BlocksListController.blocks.Add(this.gameObject);
+        BlocksListController.Instance.blocks.Add(this.gameObject);
         isCollected = true;
         gameObject.tag = "Collected";
         transform.parent = parentObj.transform;
@@ -46,11 +47,11 @@ public class BlockCollisions : MonoBehaviour
     }
 
     public void destroyFunc(){
-        BlocksListController.blocks.Remove(gameObject);
+        BlocksListController.Instance.blocks.Remove(gameObject);
         Destroy(this.gameObject);
         GameObject effect = Instantiate(destroyEffect,transform.position,Quaternion.identity);
         effect.GetComponent<ParticleSystem>().startColor = myColor;
-        BlocksListController.blockChangePos();
+        BlocksListController.Instance.blockChangePos();
         cameraController.shakeFunc();
         uimanager.hitEffectActive();
     }

@@ -9,7 +9,7 @@ public class BombController : MonoBehaviour
     Transform targetPos;
     Rigidbody rigidbody;
     [SerializeField] float speed,radius;
-    [SerializeField] GameObject destroyEffect;
+    [SerializeField] GameObject[] destroyEffects;
     CameraController cameraController;
     // Start is called before the first frame update
     void Start()
@@ -50,13 +50,17 @@ public class BombController : MonoBehaviour
 
     private void collFunction(GameObject collObj){
         Destroy(gameObject);
-        Instantiate(destroyEffect,transform.position,Quaternion.identity);
+        int random = Random.Range(0, destroyEffects.Length);
+        Instantiate(destroyEffects[random],transform.position,Quaternion.identity);
         cameraController.shakeFunc();
     }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.layer == LayerMask.NameToLayer("Block")){
-            collFunction(other.gameObject);
+            if(other.gameObject.tag == "Collected")
+            {
+                collFunction(other.gameObject);
+            }
         }
     }
 

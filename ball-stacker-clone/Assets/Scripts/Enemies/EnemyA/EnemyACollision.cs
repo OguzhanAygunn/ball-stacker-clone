@@ -9,6 +9,7 @@ public class EnemyACollision : MonoBehaviour
     EnemyAMovement enemyAMovement;
     Collider collider;
     Rigidbody rigidbody;
+    [SerializeField] GameObject collWallEffect;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -18,22 +19,32 @@ public class EnemyACollision : MonoBehaviour
     }
 
     public void deathFunc(){
-        gameObject.layer = 0;
-        animator.enabled = false;
-        enemyAMovement.enabled = false;
-        collider.enabled = false;
-        transform.DOScale(Vector3.zero,0.66f).SetDelay(1.5f).OnComplete( () => {
-            Destroy(this.gameObject);
-        });
+        if (collider)
+        {
+            gameObject.layer = 0;
+            animator.enabled = false;
+            enemyAMovement.enabled = false;
+            collider.enabled = false;
+            transform.DOScale(Vector3.zero, 0.66f).SetDelay(1.5f).OnComplete(() => {
+                Destroy(this.gameObject);
+            });
+        }
     }
+
+
 
     private void OnCollisionEnter(Collision other) {
         string tag = other.gameObject.tag;
         if((tag == "Bullet" 
-        || tag == "Wall" 
         || other.gameObject.layer == LayerMask.NameToLayer("Obstacle")) 
         && animator.enabled){
             deathFunc();
+        }
+        else if(tag == "Wall")
+        {
+            deathFunc();
+            Vector3 collPoint = other.contacts[0].point;
+            Instantiate(collWallEffect, collPoint, Quaternion.identity);
         }
     }
 }

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 4c72f3c555f96274787f31379fabb6ff
 TextureImporter:
-  InternalIDToNameTable: []
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  IsReadable: 0
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -60,7 +60,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  IgnorePngGamma: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
@@ -94,9 +94,9 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    InternalID: 0
+    internalID: 0
     vertices: []
-    Indices: 
+    indices: 
     edges: []
     weights: []
     secondaryTextures: []

@@ -15,6 +15,7 @@ public class GameOverEffectController : MonoBehaviour
 
     public void effectActive(){
         image.DOColor(Color.black,1f).SetDelay(1f).OnComplete( () => {
+            StopAllCoroutines();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }

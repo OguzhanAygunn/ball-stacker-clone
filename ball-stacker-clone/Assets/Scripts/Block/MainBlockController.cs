@@ -18,7 +18,7 @@ public class MainBlockController : MonoBehaviour
     }
 
     void deathFunc(){
-        GameManager.isPlayerDead = true;
+        GameManager.Instance.isPlayerDead = true;
         Destroy(gun);
         BlockCollisions[] blockCollisions = GetComponentsInChildren<BlockCollisions>();
         foreach(BlockCollisions bc in blockCollisions){
@@ -29,7 +29,7 @@ public class MainBlockController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         var otherLayer = other.gameObject.layer;
-        if((otherLayer == LayerMask.NameToLayer("Obstacle") || otherLayer == LayerMask.NameToLayer("Enemy")) && !GameManager.isPlayerDead){
+        if((otherLayer == LayerMask.NameToLayer("Obstacle") || otherLayer == LayerMask.NameToLayer("Enemy")) && !GameManager.Instance.isPlayerDead){
             deathFunc();
         }
     }

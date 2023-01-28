@@ -19,13 +19,22 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     void movementOperations(){
-        if(Input.touchCount > 0 && !GameManager.isPlayerDead){
-            touch = Input.GetTouch(0);
-            Vector3 pos = Vector3.zero;
-            pos.x += touch.deltaPosition.x / sensibility * Time.fixedDeltaTime;
-            transform.position += pos;
-            transform.position += Vector3.forward / 10f;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x,-3,3),transform.position.y,transform.position.z);
-    }
+        if(!GameManager.Instance.isPlayerDead && !GameManager.Instance.GameWin && GameManager.Instance.GameStart)
+        {
+            if (Input.touchCount > 0)
+            {
+                touch = Input.GetTouch(0);
+                Vector3 pos = Vector3.zero;
+                pos.x += touch.deltaPosition.x / sensibility * Time.fixedDeltaTime;
+                transform.position += pos;
+                transform.position += Vector3.forward / 10f;
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3, 3), transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.position += Vector3.forward / 10f;
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -3, 3), transform.position.y, transform.position.z);
+            }
+        }
     }
 }

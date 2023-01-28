@@ -14,6 +14,7 @@ public class BulletAController : MonoBehaviour
     {
         material = GetComponent<MeshRenderer>().material;
         targetScale = transform.localScale * 1.3f;
+        Destroy(gameObject, 2.6f);
     }
 
     void collFunc(){
@@ -27,7 +28,7 @@ public class BulletAController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         string tag = other.gameObject.tag;
-        if(!isColl){
+        if(tag == "Enemy"){
             collFunc();
         }
     }

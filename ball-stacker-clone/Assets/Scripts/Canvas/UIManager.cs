@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
     HitEffectController hitEffectController;
     GameOverEffectController gameOverEffectController;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         hitEffectController = GameObject.FindObjectOfType<HitEffectController>();
@@ -20,5 +27,10 @@ public class UIManager : MonoBehaviour
 
     public void gameOverEffectActive(){
         gameOverEffectController.effectActive();
+    }
+
+    public void gameWinActive()
+    {
+        GameWin.Instance.ActiveOP();
     }
 }
